@@ -5,7 +5,6 @@ const perPersonTotalDiv = document.getElementById("perPersonTotal");
 
 let numberOfPeople = Number(numberOfPeopleDiv.innerText);
 
-// ** Calculate the total bill per person **
 const calculateBill = () => {
   const bill = Number(billInput.value);
   const tipPercent = Number(tipInput.value) / 100;
