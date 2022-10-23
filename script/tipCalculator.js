@@ -1,7 +1,9 @@
-const billInput = document.getElementById("billTotalInput");
+const billInput = document.getElementById ("billTotalInput");
 const tipInput = document.getElementById("tipInput");
 const numberOfPeopleDiv = document.getElementById("numberOfPeople");
 const perPersonTotalDiv = document.getElementById("perPersonTotal");
+
+const errorMessage = document.getElementById("errorTag");
 
 let numberOfPeople = Number(numberOfPeopleDiv.innerText);
 
@@ -12,7 +14,7 @@ const calculateBill = () => {
   const total = tipAmount + bill;
   const perPersonTotal = total / numberOfPeople;
 
-  perPersonTotalDiv.innerText = `$${perPersonTotal.toFixed(2)}`;
+  perPersonTotalDiv.innerText = `₦${perPersonTotal.toFixed(2)}`;
 };
 
 const increasePeople = () => {
@@ -23,10 +25,10 @@ const increasePeople = () => {
 
 const decreasePeople = () => {
   if (numberOfPeople <= 1) {
-    return;
+    throw "Hey you can't have less than one person"
   }
 
   numberOfPeople -= 1;
   numberOfPeopleDiv.innerText = numberOfPeople;
   calculateBill();
-};
+}
